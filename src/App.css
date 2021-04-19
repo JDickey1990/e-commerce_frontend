@@ -1,6 +1,6 @@
 :root{
-  --mainBlue:#2a2a;
-  --lightBlue:#009ffd;
+  --mainGrey: rgb(95, 95, 95);
+  --lightGrey:rgb(163, 163, 163);
   --mainWhite:#f3f3f3;
   --mainDark:#232528;
   --mainYellow:#ffa400;
@@ -8,8 +8,8 @@
 
 body{
     font-family: 'Shadows Into Light', cursive !important;
-    background: var(--mainDark) !important;
-    color: var(--mainWhite) !important;
+    background: var(--mainWhite) !important;
+    color: var(--mainDark) !important;
 }
 
 .text-title{
@@ -19,9 +19,13 @@ body{
 }
 
 .text-blue{
-    color: (var--mainBlue)
+    color: const(--mainGrey);
 }
 
 .text-bright{
-    color: var(--lightblue)
+    color: (--lightGrey);
 }
+/* 
+.bg{
+    color: (var--mainBlue);
+} */
