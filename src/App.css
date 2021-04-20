@@ -3,17 +3,17 @@
   --lightGrey:rgb(163, 163, 163);
   --mainWhite:#f3f3f3;
   --mainDark:#232528;
-  --mainYellow:#ffa400;
+  --mainYellow:#ffc400;
 }
 
 body{
-    font-family: 'Shadows Into Light', cursive !important;
+    font-family: 'Lato', sans-serif !important;
     background: var(--mainWhite) !important;
     color: var(--mainDark) !important;
 }
 
 .text-title{
-    font-family: 'Bangers', cursive;
+    font-family: 'Raleway', sans-serif;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
 }
@@ -25,7 +25,7 @@ body{
 .text-bright{
     color: (--lightGrey);
 }
-/* 
-.bg{
-    color: (var--mainBlue);
-} */
+
+.detail-img-top{
+    transform: scale(1.5);
+}
