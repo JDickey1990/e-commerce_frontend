@@ -18,7 +18,7 @@ body{
     text-transform: uppercase;
 }
 
-.text-blue{
+.text-grey{
     color: const(--mainGrey);
 }
 
