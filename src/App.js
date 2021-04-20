@@ -8,8 +8,7 @@ import Cart from './components/Cart'
 import Default from './components/Default'
 import Details from './components/Details'
 import Navbar from './components/Navbar'
-import Product from './components/Product'
-import ProductList from './components/ProductList'
+
 class App extends React.Component{
 
   render(){
