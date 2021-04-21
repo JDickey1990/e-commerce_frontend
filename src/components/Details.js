@@ -5,8 +5,14 @@ import {ButtonContainer}  from './Button'
 
 
 class Details extends Component {
+
+    handleOnClick = () => {
+        this.props.addToCart(this.props.product)
+        this.props.openModal(this.props.product)
+    }
+
     render() {
-        const {id, model, img, price, company, collection, info, inCart, count, total} = this.props.product;
+        const {model, img, price, company, collection, info, inCart, count, total} = this.props.product;
         return (
             <div className="container py-5">
                 {/* title */}
@@ -40,15 +46,21 @@ class Details extends Component {
                                 {info}
                             </p>
                         </div>
-                      {/* buttons */}    
-                        <Link to="/">
-                            <ButtonContainer>
-                                Return to Products
+                      {/* buttons */}   
+                        <div>
+                            <Link to="/">
+                                <ButtonContainer>
+                                    Return to Products
+                                </ButtonContainer>
+                            </Link>
+                            <ButtonContainer 
+                                cart 
+                                disabled={inCart ? true : false}
+                                onClick={() => this.handleOnClick()}
+                            >
+                                {inCart ? "In Cart" : "Add to Cart"}
                             </ButtonContainer>
-                        </Link>
-                        <ButtonContainer cart onClick={()=>console.log("write a function to add this to cart")}>
-                            {inCart ? "In cart" : "Add to Cart"}
-                        </ButtonContainer>
+                        </div> 
                     </div>      
                 </div>
             </div>
@@ -58,4 +70,10 @@ class Details extends Component {
 
 const mapStateToProps = ({ product }) => ({ product })
 
-export default connect(mapStateToProps)(Details)
+const mapDispatchToProps = dispatch => ({
+    addToCart: product => dispatch({ type: "ADD_TO_CART", product}),
+    openModal: product => dispatch({ type: "OPEN_MODAL", product}),
+    closeModal: () => dispatch({ type: "CLOSE_MODAL"})
+  })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details)
