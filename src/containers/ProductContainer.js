@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 class ProductContainer extends Component {
 
 products = () => {
-    return this.props.products.map(product => <Product key={product.id} product={product} findProduct={this.props.findProduct}/>)
+    return this.props.products.map(product => <Product key={product.id} product={product} findProduct={this.props.findProduct} addToCart={this.props.addToCart} openModal={this.props.openModal}/>)
 }
     render() {
         return (
@@ -25,7 +25,10 @@ products = () => {
 const mapStateToProps = ({ products }) => ({ products })
 
 const mapDispatchToProps = dispatch => ({
-  findProduct: id => dispatch({ type: "FIND_PRODUCT", id})
+  findProduct: id => dispatch({ type: "FIND_PRODUCT", id}),
+  addToCart: product => dispatch({ type: "ADD_TO_CART", product}),
+  openModal: product => dispatch({ type: "OPEN_MODAL", product}),
+  closeModal: () => dispatch({ type: "CLOSE_MODAL"})
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(ProductContainer);
