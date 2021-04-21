@@ -106,14 +106,14 @@ export const storeProducts = [
   ];
   
   export const detailProduct = {
-    id: 1,
-    model: "Google Pixel - Black",
+    id: 8,
+    model: "5316P-001 - Platinum",
     img: "img/Product-8_5316P_001.jpg",
-    price: 10,
+    price: 92260,
     company: "Patek Philippe",
     collection: "Grand Complications",
     info:
-      "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+      "Patek Philippe has redesigned its famous Grand Complication with a minute repeater, a tourbillon, and a perpetual calendar with a retrograde date. It sports a new platinum case with a two-tier bezel and lugs as well as a black enamel dial. The retrograde date is indicated by an unusual hand with a diamond-shaped tip.",
     inCart: false,
     count: 0,
     total: 0
