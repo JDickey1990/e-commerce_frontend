@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import { ButtonContainer } from './Button';
 
 
 
@@ -11,9 +12,14 @@ export default class Product extends Component {
          this.props.findProduct(this.props.product.id)
     }
 
+    handleAddOnClick = () => {
+        this.props.addToCart(this.props.product)
+        this.props.openModal(this.props.product)
+    }
+
 
     render() {
-        const {id, model, img, price, inCart} = this.props.product;
+        const {model, img, price, inCart} = this.props.product;
         return (
             <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
                 <div className="card">
@@ -24,13 +30,12 @@ export default class Product extends Component {
                         <button 
                             className="cart-btn" 
                             disabled={inCart ? true:false} 
-                            onClick={()=> {console.log("write a function to add to the cart")
-                            }}
+                            onClick={() => this.handleAddOnClick()}
                         >
                             {inCart ? (
-                                <p className="text-capitalize mb-0" disabled> 
+                                <p className=" mb-0" disabled> 
                                     {" "}
-                                    In Cart
+                                    in Cart
                                 </p>
                                 ) : (
                                 <i className="fas fa-cart-plus"/>
