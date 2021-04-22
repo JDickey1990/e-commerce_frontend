@@ -8,6 +8,7 @@ import Cart from './components/Cart'
 import Default from './components/Default'
 import Details from './components/Details'
 import Navbar from './components/Navbar'
+import Modal from './components/Modal'
 
 class App extends React.Component{
 
@@ -21,6 +22,7 @@ class App extends React.Component{
             <Route path="/cart" component={Cart} />
             <Route component={Default} />
         </Switch>
+        <Modal />
       </Router>
     );
   };
