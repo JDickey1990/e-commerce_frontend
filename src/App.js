@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import StoreFront from './containers/StoreFront'
 import {Switch, Route} from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom';
-import Cart from './components/Cart'
+import Cart from './components/Cart/Cart'
 import Default from './components/Default'
 import Details from './components/Details'
 import Navbar from './components/Navbar'
