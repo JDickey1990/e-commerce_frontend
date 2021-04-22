@@ -14,7 +14,7 @@ import {detailProduct} from '../data';
 // };
 
 export default function manageStore(state= 
-    { products: storeProducts, product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [] }, action) {
+    { products: storeProducts, product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0 }, action) {
         switch (action.type) {
             case 'ADD_TO_CART':
                 const tempProducts = [...state.products];
@@ -31,6 +31,15 @@ export default function manageStore(state=
 
             case 'CLOSE_MODAL':
                  return {...state, modalOpen: false}
+
+            case 'INCREMENT':
+                console.log("This is increment")
+
+            case 'DECREMENT':
+                console.log("This is decrement")
+
+            case 'EMPTY_CART':
+                console.log("The cart is empty")
 
             case 'FIND_PRODUCT':
                 const selectedProduct = state.products.find(product => product.id === action.id);
