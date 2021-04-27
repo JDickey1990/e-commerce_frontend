@@ -9,8 +9,13 @@ import Default from './components/Default'
 import Details from './components/Details'
 import Navbar from './components/Navbar'
 import Modal from './components/Modal'
+import {connect} from 'react-redux'
 
 class App extends React.Component{
+
+  componentDidMount() {
+    this.props.setProducts()
+};
 
   render(){
     return (
@@ -29,4 +34,8 @@ class App extends React.Component{
  
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setProducts: () => dispatch({ type: "SET_PRODUCTS"})
+})
+
+export default connect(null, mapDispatchToProps)(App);
