@@ -4,7 +4,7 @@ import {detailProduct} from '../data';
 // componentDidMount() {
 //     this.setProducts()
 // };
-// setProducts = () =>{
+// const setProducts = () =>{
 //     let temp= [];
 //     storeProducts.forEach(item => {
 //         const singleItem = {...item};
@@ -14,8 +14,17 @@ import {detailProduct} from '../data';
 // };
 
 export default function manageStore(state= 
-    { products: storeProducts, product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0 }, action) {
+    { products: [], product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0 }, action) {
         switch (action.type) {
+
+            case 'SET_PRODUCTS':
+                let temp= [];
+                storeProducts.forEach(item => {
+                const singleItem = {...item};
+                temp=[...temp, singleItem];
+                })
+                return {...state, products: temp}
+
             case 'ADD_TO_CART':
                 const tempProducts = [...state.products];
                 const index = tempProducts.indexOf(action.product);
@@ -34,12 +43,34 @@ export default function manageStore(state=
 
             case 'INCREMENT':
                 console.log("This is increment")
+                return{...state}
 
             case 'DECREMENT':
                 console.log("This is decrement")
+                return{...state}
+
+            case 'REMOVE_ITEM':
+                let psuedoProducts = [...state.products]
+                let tempCart = [...state.shoppingCart]
+                tempCart = tempCart.filter(item =>  item.id !== action.product.id)
+                let placeholder = psuedoProducts.indexOf(action.product)
+                let removedProduct = psuedoProducts[placeholder]
+                removedProduct.inCart = false;
+                removedProduct.count = 0;
+                removedProduct.total = 0;
+                return{ ...state, shoppingCart: tempCart, products:psuedoProducts }
 
             case 'EMPTY_CART':
-                console.log("The cart is empty")
+                return{...state, shoppingCart: []}
+
+            case 'ADD_TOTALS' :
+               let subTotal = 0;
+               action.shoppingCart.map(item => (subTotal += item.total));
+               let tempTax = subTotal * 0.1;
+               const tax = parseFloat(tempTax.toFixed(2));
+               const total = subTotal + tax;
+               return {...state, cartSubTotal: subTotal, cartTax: tax, cartTotal: total}
+        
 
             case 'FIND_PRODUCT':
                 const selectedProduct = state.products.find(product => product.id === action.id);
