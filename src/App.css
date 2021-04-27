@@ -19,13 +19,34 @@ body{
 }
 
 .text-grey{
-    color: const(--mainGrey);
+    color: var(--mainGrey);
 }
 
 .text-bright{
-    color: (--lightGrey);
+    color: var(--lightGrey);
 }
 
 .detail-img-top{
     transform: scale(1.5);
 }
+
+.btn-black{
+    background: transparent;
+    text-transform: capitalize;
+    font-size: 0.8rem !important;
+    color: const(--mainDark);
+    border-radius: 0 !important;
+    border:0.1rem solid var(--mainDark) !important;
+}
+
+.btn-black:hover{
+    background: var(--mainDark) !important;
+    color: var(--mainWhite) !important;
+}
+.cart-icon{
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--mainYellow);
+}
+
+
