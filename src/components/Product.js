@@ -3,18 +3,15 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import { ButtonContainer } from './Button';
 
-
-
-
 export default class Product extends Component {
-
+    // const {findProduct, addToCart, addTotals, openModal, product, shoppingCart} = this.props
     handleDetailOnClick = () => {
          this.props.findProduct(this.props.product.id)
     }
 
     handleAddOnClick = () => {
         this.props.addToCart(this.props.product)
-        this.props.openModal(this.props.product)
+        this.props.openModal(this.props.product) 
     }
 
 
