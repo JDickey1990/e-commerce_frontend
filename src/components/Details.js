@@ -12,7 +12,7 @@ class Details extends Component {
     }
 
     render() {
-        const {model, img, price, company, collection, info, inCart, count, total} = this.props.product;
+        const {model, img, price, company, collection, info, inCart} = this.props.product;
         return (
             <div className="container py-5">
                 {/* title */}

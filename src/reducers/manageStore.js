@@ -14,7 +14,7 @@ import {detailProduct} from '../data';
 // };
 
 export default function manageStore(state= 
-    { products: [], product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0, orders: [] }, action) {
+    { products: [], product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0, orders:[] }, action) {
         switch (action.type) {
 
             case 'SET_PRODUCTS':
