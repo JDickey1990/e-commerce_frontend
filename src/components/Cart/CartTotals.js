@@ -1,8 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {addOrder} from '../Actions/addOrder'
+import {addTotals} from '../Actions/addTotals'
+import {emptyCart} from '../Actions/emptyCart'
+import {setProducts} from '../Actions/setProducts'
 
- function CartTotals({cartSubTotal, cartTax, cartTotal, emptyCart, addTotals, shoppingCart, setProducts}) {
+ function CartTotals({cartSubTotal, cartTax, cartTotal, emptyCart, addTotals, shoppingCart, addOrder, setProducts}) {
 
     const totals = () => {
         addTotals(shoppingCart)
@@ -12,6 +16,19 @@ import {Link} from 'react-router-dom'
         emptyCart();
         setProducts();
     }
+
+    const handlePurchase = () => {
+        let data = {order:{
+            subtotal: cartSubTotal,
+            tax: cartTax,
+            total: cartTotal},
+            products_attributes: shoppingCart
+        }
+        addOrder(data);
+        emptyCart();
+        setProducts();
+    }
+ 
 
 
     return (
@@ -38,6 +55,13 @@ import {Link} from 'react-router-dom'
                         <span className="text-title"> total: </span>
                         <strong>$ {cartTotal} </strong>
                     </h5>
+                    <Link to='/'>
+                        <button className="btn btn-outline-success text-uppercase mb-3 px-5" 
+                                type="button"
+                                onClick={() => handlePurchase()}
+                            >purchase
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -46,10 +70,10 @@ import {Link} from 'react-router-dom'
 
 const mapStateToProps =({cartSubTotal, cartTax, cartTotal, shoppingCart}) => ({cartSubTotal, cartTax, cartTotal, shoppingCart})
 
-const mapDispatchToProps = dispatch =>({
-    emptyCart: () => dispatch ({type: 'EMPTY_CART'}),
-    addTotals: shoppingCart => dispatch ({ type: "ADD_TOTALS", shoppingCart}),
-    setProducts: () => dispatch({ type: "SET_PRODUCTS"})
-     
-})
-export default connect (mapStateToProps, mapDispatchToProps)(CartTotals)
+// const mapDispatchToProps = dispatch =>({
+//     emptyCart: () => dispatch ({type: 'EMPTY_CART'}),
+//     addTotals: shoppingCart => dispatch ({ type: "ADD_TOTALS", shoppingCart}),
+//     setProducts: () => dispatch({ type: "SET_PRODUCTS"})
+// })
+
+export default connect (mapStateToProps,{addOrder, addTotals, emptyCart, setProducts} )(CartTotals)
