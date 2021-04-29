@@ -30,9 +30,8 @@ export default class Product extends Component {
                             onClick={() => this.handleAddOnClick()}
                         >
                             {inCart ? (
-                                <p className=" mb-0" disabled> 
-                                    {" "}
-                                    in Cart
+                                <p className=" mb-0 mr-10" disabled> 
+                                In Cart
                                 </p>
                                 ) : (
                                 <i className="fas fa-cart-plus"/>
@@ -87,7 +86,7 @@ const ProductWrapper = styled.div`
 .cart-btn{
     position: absolute;
     bottom: 0;
-    right: 0:
+    right: 0;
     padding: 0.2rem 0.4rem;
     background:var(--lightGrey);
     border: none;
