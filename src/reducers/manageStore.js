@@ -14,7 +14,7 @@ import {detailProduct} from '../data';
 // };
 
 export default function manageStore(state= 
-    { products: [], product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0 }, action) {
+    { products: [], product: detailProduct, modalOpen: false, modalProduct: detailProduct ,shoppingCart: [], cartSubTotal: 0, cartTax: 0, cartTotal: 0, orders: [] }, action) {
         switch (action.type) {
 
             case 'SET_PRODUCTS':
@@ -75,6 +75,9 @@ export default function manageStore(state=
             case 'FIND_PRODUCT':
                 const selectedProduct = state.products.find(product => product.id === action.id);
                 return { ...state, product: selectedProduct}
+
+            case 'ADD_ORDER':
+                return {...state, orders: action.payload}
 
             default:
                 return state;

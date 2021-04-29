@@ -1,5 +1,4 @@
 export const addOrder = (data) => {
-    console.log("hello")
     return (dispatch) => {
         fetch('http://localhost:3001/api/v1/orders', {
             headers: {
@@ -10,7 +9,6 @@ export const addOrder = (data) => {
             body: JSON.stringify(data)
         })
         .then(resp => resp.json())
-        // .then(order => dispatch({type: "ADD_USER", payload: order}))
-        .then(order => console.log(order))
+        .then(order => dispatch({type: "ADD_ORDER", payload: order}))
     }
 }
