@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import Modal from './components/Modal'
 import Orders from './components/Orders'
 import {connect} from 'react-redux'
+import ProductContainer from './containers/ProductContainer';
 
 class App extends React.Component{
 
@@ -26,7 +27,8 @@ class App extends React.Component{
             <Route exact path="/" component={StoreFront} />
             <Route path="/details" component={Details} />
             <Route path="/cart" component={Cart} />
-            <Route path="/orders component={Orders}"/>
+            <Route path="/orders" component={Orders}/>
+            <Route path="/watches" component={ProductContainer}/>
             <Route component={Default} />
         </Switch>
         <Modal />

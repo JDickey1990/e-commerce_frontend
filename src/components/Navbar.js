@@ -15,7 +15,10 @@ export default class Navbar extends Component {
 
                 <ul className="navbar-nav align-items-center">
                     <li className="nav-item ml-5">
-                        <Link to="/" className="nav-link"> PRODUCTS </Link>
+                        <Link to="/watches" className="nav-link"> WATCHES </Link>
+                    </li>
+                    <li className="nav-item ml-5">
+                        <Link to="/orders" className="nav-link"> YOUR ORDERS </Link>
                     </li>
                 </ul>
                 <Link to='/cart' className="ml-auto">

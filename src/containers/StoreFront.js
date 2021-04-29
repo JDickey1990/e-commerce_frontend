@@ -5,7 +5,7 @@ export default class storefront extends Component {
     render() {
         return (
             <div>
-               <ProductContainer />
+               This is where I can tell you how cool my store is 
             </div>
         )
     }

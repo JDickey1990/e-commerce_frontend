@@ -55,7 +55,7 @@ import {setProducts} from '../Actions/setProducts'
                         <span className="text-title"> total: </span>
                         <strong>$ {cartTotal} </strong>
                     </h5>
-                    <Link to='/'>
+                    <Link to='/orders'>
                         <button className="btn btn-outline-success text-uppercase mb-3 px-5" 
                                 type="button"
                                 onClick={() => handlePurchase()}
