@@ -33,7 +33,7 @@ export default function manageStore(state=
                 product.count = 1;
                 const price = product.price;
                 product.total= price;
-                return {products: tempProducts, shoppingCart: [...state.shoppingCart, product ]}
+                return {...state, products: tempProducts, shoppingCart: [...state.shoppingCart, product ]}
 
             case 'OPEN_MODAL':
                 return {...state, modalProduct: action.product, modalOpen: true, product: action.product}
@@ -77,7 +77,7 @@ export default function manageStore(state=
                 return { ...state, product: selectedProduct}
 
             case 'ADD_ORDER':
-                return {...state, orders: action.payload}
+                return {...state, orders: [...state.orders, action.payload]}
 
             default:
                 return state;
