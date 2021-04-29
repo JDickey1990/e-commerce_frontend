@@ -79,6 +79,9 @@ export default function manageStore(state=
             case 'ADD_ORDER':
                 return {...state, orders: [...state.orders, action.payload]}
 
+            case 'SET_ORDERS':
+                return {...state, orders: action.payload}
+
             default:
                 return state;
         }  

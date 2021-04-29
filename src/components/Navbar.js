@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import logo from "../logo.svg"
 import  {ButtonContainer} from './Button'
+import {getOrders} from './Actions/getOrders'
+import {connect} from 'react-redux'
 
-export default class Navbar extends Component {
+
+ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-sm  px-sm-5 bg-secondary navbar-dark">
@@ -18,9 +21,10 @@ export default class Navbar extends Component {
                         <Link to="/watches" className="nav-link"> WATCHES </Link>
                     </li>
                     <li className="nav-item ml-5">
-                        <Link to="/orders" className="nav-link"> YOUR ORDERS </Link>
+                        <Link to="/orders" className="nav-link" onClick={() => this.props.getOrders()}> YOUR ORDERS </Link>
                     </li>
                 </ul>
+
                 <Link to='/cart' className="ml-auto">
                     <ButtonContainer>
                         <span className="mr-2 ">
@@ -30,10 +34,10 @@ export default class Navbar extends Component {
                     </ButtonContainer>
                 </Link>
 
-
             </nav>
         )
     }
 }
 
 
+export default connect(null, {getOrders})(Navbar)

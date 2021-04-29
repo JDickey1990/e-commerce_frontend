@@ -10,6 +10,5 @@ export const addOrder = (data) => {
         })
         .then(resp => resp.json())
         .then(order => dispatch({type: "ADD_ORDER", payload: order}))
-        .then(order => console.log(order))
     }
 }
